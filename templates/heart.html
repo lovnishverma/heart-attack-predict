@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Website</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Set black background color, white text and some padding */
+    footer {
+     position: fixed;
+            
+            bottom: 0;
+            width: 100%;
+            color: white;
+             padding: 15px;
+            /* Height of the footer*/
+            height: 40px;
+           background-color: #555;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+/*     to make the box transparent  */
+    .trans{
+              width: 1200px;
+              background-color: #ffffff99;
+              box-shadow: 0 0 9px 0 rgba(0,0,0,0.3);
+              margin: 100px auto;
+              }
+    
+/* link */
+    a {
+  
+  color: white;
+  text-align: center;}
+    
+/* background image  */
+     body {
+  
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+    
+    
+}
+
+  </style>
+</head>
+    
+    
+<body background="https://cdn.glitch.global/8599b2d2-58ab-4d42-98f5-97fa4c6bad04/Screenshot%202023-04-28%20012750.png?v=1682625528976">
+  
+<div>
+<div class="container">
+<div class="panel-group">
+    <div class="panel panel-info trans">
+      <div class="panel-heading">
+      <div class="panel-title" align="center"><strong> HEART ATTACK PREDICTION </strong></div>
+      </div>
+        <div class="panel-body">
+<hr>
+<center><img src="https://cdn.glitch.global/8599b2d2-58ab-4d42-98f5-97fa4c6bad04/heart.jpg?v=1681563090960" alt="Heart Attack Prediction" width="1000" height="500" ></center>
+ 
+
+           
+<form action="/heartattack" method="POST">
+
+  <table class="table table-striped trans" align="center">
+    
+    <div class="row">
+    <tr>
+       <div class="col-sm-6">
+         <td><label for="AGE" class="form-label">Age of the Patient :</label></td></div>
+        <div class="col-sm-6">
+          <td><input type="text" name="AGE" placeholder="Enter Patient's Age" required></td></div>
+    </tr>
+      <tr>
+        <div class="col-sm-6">
+          <td><label for="BLOOD" class="form-label">Resting blood pressure (in mm Hg) :</label></td></div>
+        <div class="col-sm-6">
+          <td><input type="text" name="BLOOD" placeholder="Enter Blood Pressure" required></td></div>
+    </tr> 
+      <tr>
+        <div class="col-sm-6">
+          <td><label for="CHOLESTROL" class="form-label">Cholestrol in mg/dl fetched via BMI sensor :</label></td></div>
+        <div class="col-sm-6">
+          <td><input type="text" name="CHOLESTROL" placeholder="Enter Cholestrol" required></td></div>
+    </tr> 
+      <tr>
+        <div class="col-sm-6">
+          <td><label for="RATE" class="form-label">Maximum heart rate achieved :</label></td></div>
+        <div class="col-sm-6">
+          <td><input type="text" name="RATE" placeholder="Enter Max Heart Rate" required></td></div>
+    </tr>  
+      
+    <tr>
+        <div class="col-sm-6">
+          <td><label for="GENDER" class="form-label">Select Gender :</label></td></div>
+        <div class="col-sm-6">
+          <td><select class="form-select" id="GENDER" name="GENDER" required>
+                <option value="0">Female</option>
+            <option value="1">Male</option></select></td>
+        </div>
+    </tr>
+    <tr>
+        <div class="col-sm-6">
+          <td><label for="CHEST" class="form-label">Select Chest Pain type :</label></td></div>
+         <div class="col-sm-6">
+         <td><select class="form-select" id="CHEST" name="CHEST" required>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+           </select></td></div>  
+    </tr>  
+     <tr>
+        <div class="col-sm-6">
+          <td><label for="SUGAR" class="form-label">Fasting blood sugar &gt; 120 mg/dl :</label></td></div>
+        <div class="col-sm-6">
+           <td><select class="form-select" id="SUGAR" name="SUGAR" required>
+                <option value="0">NO                       </option>
+                <option value="1">YES                      </option>
+                
+           </select></td>
+       </div>
+    </tr> 
+      <tr>
+        <div class="col-sm-6">
+          <td><label for="ECG" class="form-label">Resting ElectroCardioGraphic results :</label></td></div>
+        <div class="col-sm-6">
+           <td><select class="form-select" id="ECG" name="ECG" required>
+                <option value="0">Normal</option>
+                <option value="1">Having ST-T wave</option>
+                <option value="2">Showing left ventricular hypertrophy</option>
+           </select></td>
+        </div>
+    </tr> 
+   
+      
+    <tr>
+    <td colspan="2" align="center">
+      <input type="submit" value="Predict Heart Attack">
+      <input type="reset" value="Clear">
+    </td>
+    </tr>
+    </div>
+  </table>
+  </form>
+</div>
+  
+          </div>
+     </div>
+
+   <div class="panel panel-success trans">
+     <div class="panel-heading"> Your Report is: </div>
+     <div class="panel-body" align="center"> {{data}} </div>
+     <center>
+     {% if data==0 %}
+        <h2>
+          Less chance of Heart Attack, Stay Happy.
+       </h2>
+        <img src="https://cdn.glitch.global/8599b2d2-58ab-4d42-98f5-97fa4c6bad04/healthyheart.jpg?v=1681566084800" alt="Healthy Heart" width="200" height="200">
+     {% elif data==1 %}
+        <h2>
+          More chance of Heart Attack, Please meet Doctor.
+       </h2>
+        <img src="https://cdn.glitch.global/8599b2d2-58ab-4d42-98f5-97fa4c6bad04/Heart-attack.webp?v=1681566080784" alt="IRIS VERSICOLOR" width="200" height="200">
+     
+     {% endif %}
+     </center>
+   </div>
+  
+  
+  
+  </div>
+
+<hr>
+  <h1 style="text-align:center;"><a href="/p">Back</a>  </h1>
+  
+  </div>
+  
+  <hr>
+<footer class="container-fluid text-center">
+  <p>@Vikas</p>
+</footer>
+
+  </body>
+
+</html>
