@@ -12,7 +12,7 @@ app=Flask(__name__)
 
   
 #HEART ATTACK PREDICTION
-@app.route('/heart')
+@app.route('/')
 def heartpage():
     return render_template("heart.html")
   
