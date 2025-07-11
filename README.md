@@ -112,9 +112,7 @@ This project is open-source and available under the [MIT License](LICENSE).
 
 ---
 
-Feel free to fork the repo, submit PRs, and improve this application. Happy coding!
-
-```
+Feel free to fork the repo, submit PRs, and improve this application. Happy coding guys!
 
 ---
 
